@@ -109,3 +109,22 @@ exports.update = async (req, res) => {
     return res.status(500).json({ msg: 'Error updating user.' });
   }
 };
+
+exports.delete = async (req, res) => {
+  const user = await User.findByPk(req.userId);
+
+  if (!user) return res.status(404).json({ msg: 'User not found.' });
+
+  const { password } = req.body;
+
+  const passwordIsValid = await bcryptjs.compare(password, user.password);
+
+  if (!passwordIsValid) return res.status(422).json({ msg: 'Incorrect password!' });
+
+  try {
+    const deletedUser = await user.destroy();
+    return res.json(deletedUser);
+  } catch (error) {
+    return res.status(500).json({ msg: 'Internal server error!' });
+  }
+};

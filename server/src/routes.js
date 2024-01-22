@@ -12,8 +12,10 @@ const routes = express.Router();
 routes.post('/users/register', UserController.create);
 routes.post('/users/login', UserController.login);
 routes.put('/users', loginRequired, UserController.update);
+routes.delete('/users', loginRequired, UserController.delete);
 // Contacts
 routes.post('/contacts', loginRequired, ContactController.create);
 routes.get('/contacts', loginRequired, ContactController.show);
+routes.put('/contacts', loginRequired, ContactController.update);
 
 module.exports = routes;
