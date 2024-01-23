@@ -61,7 +61,7 @@ exports.update = async (req, res) => {
     email,
     number,
   } = req.body;
-  console.log(user_id, contact_id);
+
   let numberExists;
   let emailExists;
   if (number) {
@@ -87,5 +87,19 @@ exports.update = async (req, res) => {
     return res.json(updatedContact);
   } catch (error) {
     return res.status(500).json({ msg: 'Error updating your contact.' });
+  }
+};
+
+exports.delete = async (req, res) => {
+  const user_id = req.userId;
+  const { contact_id } = req.body;
+
+  try {
+    const contact = await Contact.findOne({ where: { user_id, id: contact_id } });
+    await contact.destroy();
+
+    return res.json({ msg: 'Contact deleted' });
+  } catch (error) {
+    return res.status(500).json({ msg: 'Error deleting your contact.' });
   }
 };
