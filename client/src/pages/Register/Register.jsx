@@ -1,5 +1,5 @@
 import React from 'react';
-import './RegisterLogin.css';
+import './Register.css';
 
 export default function Register() {
   return (
@@ -18,7 +18,7 @@ export default function Register() {
         </form>
         <p className="login-text">
           Já tem uma conta?
-          <a href="/"> Entrar</a>
+          <a href="/login"> Entrar</a>
         </p>
         <a href="/" className="login-button">
           <p>CRIAR</p>
