@@ -7,14 +7,22 @@ export default function Register() {
       <div className="login-container">
         <h2 className="login-title">Crie sua conta</h2>
         <form className="login-form">
-          <p>Nome de usuário</p>
-          <input type="text" />
-          <p>E-mail</p>
-          <input type="text" />
-          <p>Senha</p>
-          <input type="text" />
-          <p>Confirme sua senha</p>
-          <input type="text" />
+          <label htmlFor="name">
+            <p>Nome de usuário</p>
+            <input type="text" id="name" name="name" />
+          </label>
+          <label htmlFor="email">
+            <p>E-mail</p>
+            <input type="email" name="email" id="email" />
+          </label>
+          <label htmlFor="password">
+            <p>Senha</p>
+            <input type="password" id="password" name="confirmpassword" />
+          </label>
+          <label htmlFor="confirmpassword">
+            <p>Confirme sua senha</p>
+            <input type="password" id="confirmpassword" name="confirmpassword" />
+          </label>
         </form>
         <p className="login-text">
           Já tem uma conta?

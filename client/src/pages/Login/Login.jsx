@@ -7,10 +7,14 @@ export default function Login() {
       <div className="login-container">
         <h2 className="login-title">Bem vindo de volta</h2>
         <form className="login-form">
-          <p>E-mail</p>
-          <input type="text" />
-          <p>Senha</p>
-          <input type="text" />
+          <label htmlFor="email">
+            <p>E-mail</p>
+            <input type="email" id="email" name="email" />
+          </label>
+          <label htmlFor="password">
+            <p>Senha</p>
+            <input type="text" id="password" name="password" />
+          </label>
         </form>
         <p className="login-text">
           Não tem uma conta?
