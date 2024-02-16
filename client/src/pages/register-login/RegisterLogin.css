@@ -1,0 +1,78 @@
+
+.login-container{
+  font-family: 'Poppins';
+  background-color: #545454;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+  height: 100vh;
+}
+
+.login-title{
+  font-size: 1.8em;
+  width: 140px;
+  text-align: center;
+  line-height: 1em;
+  color: #FF5757;
+}
+
+.login-form{
+  padding: 50px;
+}
+
+.login-form p {
+  font-size: 0.6em;
+  padding: 15px 0px 5px 10px;
+  color: white;
+}
+
+.login-form input{
+  width: 60vw;
+  padding: 8px 10px;
+  border-radius: 18px;
+  border-color: white;
+  background-color: #545454;
+  color: white;
+  outline: none;
+}
+
+.login-form input::-webkit-keygen-select{
+  color: white;
+  margin-left: 5px;
+}
+
+.login-text{
+  color: #FF5757;
+}
+
+.login-text a{
+  color: #FF5757;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-text a:hover{
+  text-decoration: underline;
+}
+
+.login-button{
+  background-color: #FF5757;
+  border: 2px solid white;
+  padding: 6px 75px;
+  border-radius: 25px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.login-button p{
+  color: white;
+}
+
+.login-button a{
+  text-decoration: none;
+}
+
+
+
+
