@@ -1,4 +1,4 @@
-.login-container{
+.register-container{
   font-family: 'Poppins';
   display: flex;
   flex-direction: column;
@@ -6,14 +6,14 @@
   margin-top: 90px;
 }
 
-.login-section{
+.register-section{
   background-color: #545454;
   display: flex;
   height: 100vh;
   justify-content: center;
 }
 
-.login-title{
+.register-title{
   font-size: 1.8em;
   width: 140px;
   text-align: center;
@@ -21,17 +21,17 @@
   color: #FF5757;
 }
 
-.login-form{
+.register-form{
   padding: 50px;
 }
 
-.login-form p {
+.register-form label p {
   font-size: 0.6em;
   padding: 15px 0px 5px 10px;
   color: white;
 }
 
-.login-form input{
+.register-form input{
   width: 60vw;
   padding: 8px 10px;
   border-radius: 18px;
@@ -41,35 +41,38 @@
   outline: none;
 }
 
-.login-form input::-webkit-keygen-select{
+.register-text{
   color: white;
-  margin-left: 5px;
+  padding-top: 30px;
+  text-align: center;
 }
 
-.login-text{
-  color: #FF5757;
-}
-
-.login-text a{
+.register-text a{
   color: #FF5757;
   text-decoration: none;
   font-weight: bold;
 }
 
-.login-text a:hover{
+.register-text a:hover{
   text-decoration: underline;
 }
 
-.login-button{
+.register-button{
+  display: block;
+  margin: auto;
   background-color: #FF5757;
   border: 2px solid white;
-  padding: 6px 75px;
+  padding: 10px 75px;
   border-radius: 25px;
-  margin-top: 20px;
+  margin-top: 30px;
   text-decoration: none;
 }
 
-.login-button p{
+.register-button:hover{
+  cursor: pointer;
+}
+
+.register-button p{
   color: white;
 }
 

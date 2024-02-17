@@ -1,36 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import api from '../../api/api';
 import './Register.css';
 
 export default function Register() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmpassword, setConfirmpassword] = useState('');
+  const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+    try {
+      await api.post('users/register', {
+        name, email, password, confirmpassword,
+      });
+
+      setName('');
+      setEmail('');
+      setPassword('');
+      setConfirmpassword('');
+
+      navigate('/login');
+    } catch (err) {
+      setError(err.response.data.msg);
+    }
+  };
+
   return (
-    <section className="login-section">
-      <div className="login-container">
-        <h2 className="login-title">Crie sua conta</h2>
-        <form className="login-form">
+    <section className="register-section">
+      <div className="register-container">
+        <h2 className="register-title">Crie sua conta</h2>
+        <form className="register-form" onSubmit={handleCreateUser}>
           <label htmlFor="name">
             <p>Nome de usuário</p>
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name" value={name} onChange={(e) => [setName(e.target.value), setError('')]} />
           </label>
           <label htmlFor="email">
             <p>E-mail</p>
-            <input type="email" name="email" id="email" />
+            <input type="email" name="email" id="email" value={email} onChange={(e) => [setEmail(e.target.value)]} />
           </label>
           <label htmlFor="password">
             <p>Senha</p>
-            <input type="password" id="password" name="confirmpassword" />
+            <input type="password" id="password" name="password" value={password} onChange={(e) => [setPassword(e.target.value), setError('')]} />
           </label>
           <label htmlFor="confirmpassword">
             <p>Confirme sua senha</p>
-            <input type="password" id="confirmpassword" name="confirmpassword" />
+            <input type="password" id="confirmpassword" name="confirmpassword" value={confirmpassword} onChange={(e) => [setConfirmpassword(e.target.value), setError('')]} />
           </label>
+          <p className="register-text">{error}</p>
+          <p className="register-text">
+            Já tem uma conta?
+            <Link to="/login"> Entrar</Link>
+          </p>
+          <button className="register-button" type="submit">
+            <p>CRIAR</p>
+          </button>
         </form>
-        <p className="login-text">
-          Já tem uma conta?
-          <a href="/login"> Entrar</a>
-        </p>
-        <a href="/" className="login-button">
-          <p>CRIAR</p>
-        </a>
       </div>
     </section>
   );
