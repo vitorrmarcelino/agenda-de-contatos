@@ -1,0 +1,53 @@
+.add-contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.form-container {
+  margin-top: 25vh;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-input {
+  margin-top: 30px;
+  width: 60vw;
+  padding: 8px 10px;
+  border-radius: 18px;
+  border-color: white;
+  background-color: #545454;
+  color: white;
+  outline: none;
+}
+
+.add-input::placeholder {
+  color: white;
+}
+
+.check-icon {
+  scale: 1.8;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.x-icon {
+  scale: 1.8;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  color: #FF5757;
+}
+
+.error-text{
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Poppins';
+}

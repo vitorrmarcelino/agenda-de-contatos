@@ -1,3 +1,9 @@
+.menu-container{
+  position: fixed;
+  bottom: 10px;
+  right: 5px;
+}
+
 .menu{
   background-color:#FF5757;
   margin: 20px;
@@ -17,6 +23,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.menu-links{
+  color: white;
 }
 
 .icon{

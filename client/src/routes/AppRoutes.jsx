@@ -10,6 +10,7 @@ import Register from '../pages/Register/Register';
 import Login from '../pages/Login/Login';
 import { AuthProvider } from '../context/auth';
 import PrivateRoute from './PrivateRoutes';
+import AddContact from '../pages/AddContact/AddContact';
 
 function App() {
   return (
@@ -21,6 +22,14 @@ function App() {
             element={(
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            )}
+          />
+          <Route
+            path="/add"
+            element={(
+              <PrivateRoute>
+                <AddContact />
               </PrivateRoute>
             )}
           />
