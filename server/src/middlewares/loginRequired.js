@@ -21,7 +21,7 @@ const loginRequired = async (req, res, next) => {
 
     return next();
   } catch (error) {
-    return res.status(401).json({ msg: 'Expired or invalid token.' });
+    return res.status(401).json({ msg: 'Expired or invalid session.' });
   }
 };
 

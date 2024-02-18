@@ -13,6 +13,8 @@ exports.create = async (req, res) => {
 
   const user = await User.findByPk(user_id);
 
+  if (!name) return res.status(400).json({ msg: 'You must provide a name' });
+
   if (!user) return res.status(400).json({ msg: 'User not found' });
 
   if (!email && !number) return res.status(400).json({ msg: 'You must provide an email or a number.' });

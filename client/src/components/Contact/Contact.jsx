@@ -1,26 +1,24 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import './Contact.css';
+import firstLetter from '../../util/firstLetter';
 
 export default function Contact({ data }) {
   const {
-    name, lastname, email, number,
+    name, lastname,
   } = data;
-  console.log(data);
   return (
     <div className="contact-card">
-      <p>
+      <div className="contact-picture">
+        <span>
+          {firstLetter(name)}
+        </span>
+      </div>
+      <span className="contact-name">
         {name}
-      </p>
-      <p>
+        {' '}
         {lastname}
-      </p>
-      <p>
-        {email}
-      </p>
-      <p>
-        {number}
-      </p>
+      </span>
     </div>
   );
 }
