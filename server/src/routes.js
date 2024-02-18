@@ -18,5 +18,9 @@ routes.post('/contacts', loginRequired, ContactController.create);
 routes.get('/contacts', loginRequired, ContactController.show);
 routes.put('/contacts', loginRequired, ContactController.update);
 routes.delete('/contacts', loginRequired, ContactController.delete);
+// CheckToken
+routes.get('/checktoken', loginRequired, async (req, res) => {
+  res.json({ msg: 'authorizaded' });
+});
 
 module.exports = routes;

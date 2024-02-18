@@ -8,19 +8,7 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const loadingStorageData = async () => {
-      const storageUser = localStorage.getItem('user');
-      const storageToken = localStorage.getItem('token');
-
-      if (storageToken && storageUser) {
-        setUser(storageUser);
-      }
-    };
-    loadingStorageData();
-  }, []);
-
+  const [loading, setLoading] = useState(true);
   // eslint-disable-next-line consistent-return
   const login = async (email, password) => {
     try {
@@ -28,22 +16,54 @@ export function AuthProvider({ children }) {
         email, password,
       });
 
-      setUser(response.data.user);
-
       api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
+      setUser(response.data.user);
     } catch (error) {
       throw error;
     }
   };
 
+  const logout = () => {
+    localStorage.clear();
+    api.defaults.headers.Authorization = '';
+
+    setUser(null);
+  };
+
+  const checkingToken = async () => {
+    const recoveredUser = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    if (token && recoveredUser) {
+      try {
+        api.defaults.headers.common.Authorization = `Bearer ${token}`;
+        const tokenResponse = await api.get('checktoken');
+
+        if (tokenResponse.status === 200) {
+          setUser(JSON.parse(recoveredUser));
+        } else {
+          logout();
+        }
+      } catch (error) {
+        logout();
+      }
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    checkingToken();
+  }, []);
+
   return (
     <AuthContext.Provider value={{
       user,
       signed: !!user,
+      loading,
       login,
+      logout,
     }}
     >
       {children}

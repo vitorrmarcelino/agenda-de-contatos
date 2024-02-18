@@ -1,9 +1,18 @@
 import React, { useContext } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
+import Loading from '../components/Loading/Loading';
 
-export default function PrivateRoute() {
-  const { signed } = useContext(AuthContext);
+// eslint-disable-next-line react/prop-types
+export default function PrivateRoute({ children }) {
+  const { signed, loading } = useContext(AuthContext);
+  if (loading) {
+    return <Loading />;
+  }
 
-  return signed ? <Outlet /> : <Navigate to="/login" />;
+  if (!signed) {
+    return <Navigate to="/login" />;
+  }
+
+  return children;
 }

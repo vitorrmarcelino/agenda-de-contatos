@@ -1,26 +1,26 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { AuthContext } from '../../context/auth';
 
 export default function Login() {
-  const { login, signed } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
+      navigate('/');
     } catch (err) {
       setError(err.response.data.msg);
     }
   };
 
-  if (signed) {
-    return <Navigate to="/" />;
-  }
   return (
     <section className="login-section">
       <div className="login-container">

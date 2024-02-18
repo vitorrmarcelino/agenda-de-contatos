@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api/api';
+import { AuthContext } from '../../context/auth';
 import './Register.css';
 
 export default function Register() {
@@ -10,6 +11,7 @@ export default function Register() {
   const [confirmpassword, setConfirmpassword] = useState('');
   const [error, setError] = useState('');
 
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleCreateUser = async (e) => {
@@ -19,12 +21,9 @@ export default function Register() {
         name, email, password, confirmpassword,
       });
 
-      setName('');
-      setEmail('');
-      setPassword('');
-      setConfirmpassword('');
+      await login(email, password);
 
-      navigate('/login');
+      navigate('/');
     } catch (err) {
       setError(err.response.data.msg);
     }

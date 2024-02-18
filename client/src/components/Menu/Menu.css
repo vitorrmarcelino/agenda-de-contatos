@@ -1,0 +1,28 @@
+.menu{
+  background-color:#FF5757;
+  margin: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-menu{
+  margin: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon{
+  scale: 1.8;
+}
+
+.hide{
+  display: none;
+}
