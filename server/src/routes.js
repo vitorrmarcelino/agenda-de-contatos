@@ -15,7 +15,8 @@ routes.put('/users', loginRequired, UserController.update);
 routes.delete('/users', loginRequired, UserController.delete);
 // Contacts
 routes.post('/contacts', loginRequired, ContactController.create);
-routes.get('/contacts', loginRequired, ContactController.show);
+routes.get('/contacts', loginRequired, ContactController.index);
+routes.get('/contacts/:id', loginRequired, ContactController.show);
 routes.put('/contacts', loginRequired, ContactController.update);
 routes.delete('/contacts', loginRequired, ContactController.delete);
 // CheckToken

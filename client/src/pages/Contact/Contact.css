@@ -1,0 +1,50 @@
+.contact-container{
+  .center{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1{
+    font-size: 1.5em;
+    padding: 40px;
+  }
+  h2{
+    font-size: 1.2em;
+    padding: 20px 0px 10px 15px;
+  }
+  h3{
+    padding-top: 30px;
+    padding-left: 15px;
+    font-size: 1.05em;
+  }
+
+  p{
+    padding-left: 15px;
+
+  }
+
+
+
+  .pencil-icon{
+    right: 20px;
+    scale: 1.2;
+  }
+
+  .back-icon{
+    left: 10px;
+    scale: 1.5;
+  }
+
+  .icon{
+    position: fixed;
+    top: 20px;
+  }
+
+  a{
+    color: white;
+  }
+}
+

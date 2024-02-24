@@ -11,6 +11,8 @@ import Login from '../pages/Login/Login';
 import { AuthProvider } from '../context/auth';
 import PrivateRoute from './PrivateRoutes';
 import AddContact from '../pages/AddContact/AddContact';
+import EditContact from '../pages/EditContact/EditContact';
+import Contact from '../pages/Contact/Contact';
 
 function App() {
   return (
@@ -32,6 +34,22 @@ function App() {
                 <AddContact />
               </PrivateRoute>
             )}
+          />
+          <Route
+            path="/contact/:contactId"
+            element={(
+              <PrivateRoute>
+                <Contact />
+              </PrivateRoute>
+)}
+          />
+          <Route
+            path="/contact/edit/:contactId"
+            element={(
+              <PrivateRoute>
+                <EditContact />
+              </PrivateRoute>
+          )}
           />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />

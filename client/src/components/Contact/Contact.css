@@ -1,22 +1,12 @@
+.contact-link{
+  text-decoration: none;
+  color: white;
+}
+
 .contact-card{
   padding: 15px;
   display: flex;
   gap: 20px;
   align-items: center;
-}
-
-.contact-picture{
-  width: 50px;
-  height: 50px;
-  background-color: #a6a6a6;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-picture > span{
-  font-size: 1.2em;
-  font-weight: 700;
 }
 

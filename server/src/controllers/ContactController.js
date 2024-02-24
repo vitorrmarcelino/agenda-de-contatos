@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const Contact = require('../models/Contact');
 const User = require('../models/User');
 
@@ -42,7 +43,7 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.show = async (req, res) => {
+exports.index = async (req, res) => {
   const user_id = req.userId;
 
   try {
@@ -67,10 +68,26 @@ exports.update = async (req, res) => {
   let numberExists;
   let emailExists;
   if (number) {
-    numberExists = await Contact.findOne({ where: { number, user_id } });
+    numberExists = await Contact.findOne({
+      where: {
+        number,
+        user_id,
+        id: {
+          [Op.ne]: contact_id,
+        },
+      },
+    });
   }
   if (email) {
-    emailExists = await Contact.findOne({ where: { email, user_id } });
+    emailExists = await Contact.findOne({
+      where: {
+        email,
+        user_id,
+        id: {
+          [Op.ne]: contact_id,
+        },
+      },
+    });
   }
 
   if (numberExists) return res.status(400).json({ msg: 'This number has already been registered.' });
@@ -103,5 +120,19 @@ exports.delete = async (req, res) => {
     return res.json({ msg: 'Contact deleted' });
   } catch (error) {
     return res.status(500).json({ msg: 'Error deleting your contact.' });
+  }
+};
+
+exports.show = async (req, res) => {
+  const user_id = req.userId;
+  const contact_id = req.params.id;
+
+  try {
+    const contact = await Contact.findOne({ where: { user_id, id: contact_id } });
+    if (!contact) return res.status(404).json({ msg: 'Contact not found' });
+
+    return res.json(contact);
+  } catch (error) {
+    return res.status(500).json({ msg: 'Error showing your contact.' });
   }
 };

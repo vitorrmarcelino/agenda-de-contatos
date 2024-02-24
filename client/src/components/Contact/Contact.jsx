@@ -1,25 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import './Contact.css';
-import firstLetter from '../../util/firstLetter';
+import ContactPicture from '../ContactPicture/ContactPicture';
 
 export default function Contact({ data }) {
   const {
-    name, lastname,
+    name, lastname, id,
   } = data;
   return (
-    <div className="contact-card">
-      <div className="contact-picture">
-        <span>
-          {firstLetter(name)}
+    <Link to={`/contact/${id}`} className="contact-link">
+      <div className="contact-card">
+        <ContactPicture name={name} />
+        <span className="contact-name">
+          {name}
+          {' '}
+          {lastname}
         </span>
       </div>
-      <span className="contact-name">
-        {name}
-        {' '}
-        {lastname}
-      </span>
-    </div>
+    </Link>
   );
 }
 
