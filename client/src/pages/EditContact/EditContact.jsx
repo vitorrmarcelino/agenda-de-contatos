@@ -50,17 +50,17 @@ export default function AddContact() {
   };
 
   return (
-    <div className="add-contact-container">
+    <div className="edit-contact-container">
       <div className="form-container">
         <Link to="/">
           <X className="x-icon" />
         </Link>
         <Check className="check-icon" onClick={handleEditContact} />
-        <form className="add-form">
-          <input type="text" placeholder="Nome" className="add-input" value={name} onChange={(e) => [setName(e.target.value), setError('')]} />
-          <input type="text" placeholder="Sobrenome" className="add-input" value={lastname} onChange={(e) => [setLastname(e.target.value), setError('')]} />
-          <input type="text" placeholder="E-mail" className="add-input" value={email} onChange={(e) => [setEmail(e.target.value), setError('')]} />
-          <input type="text" placeholder="Telefone" className="add-input" value={number} onChange={(e) => [setNumber(e.target.value), setError('')]} />
+        <form className="edit-form">
+          <input type="text" placeholder="Nome" className="edit-input" value={name} onChange={(e) => [setName(e.target.value), setError('')]} />
+          <input type="text" placeholder="Sobrenome" className="edit-input" value={lastname} onChange={(e) => [setLastname(e.target.value), setError('')]} />
+          <input type="text" placeholder="E-mail" className="edit-input" value={email} onChange={(e) => [setEmail(e.target.value), setError('')]} />
+          <input type="text" placeholder="Telefone" className="edit-input" value={number} onChange={(e) => [setNumber(e.target.value), setError('')]} />
         </form>
       </div>
       <p className="error-text">{error}</p>

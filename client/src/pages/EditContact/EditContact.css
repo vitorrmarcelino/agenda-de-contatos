@@ -1,4 +1,4 @@
-.add-contact-container {
+.edit-contact-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,23 +10,23 @@
   margin-top: 25vh;
 }
 
-.add-form {
+.edit-form {
   display: flex;
   flex-direction: column;
 }
 
-.add-input {
-  margin-top: 30px;
-  width: 60vw;
-  padding: 8px 10px;
-  border-radius: 18px;
+.edit-input {
+  margin-top: 40px;
+  width: 70vw;
+  padding: 10px 15px;
+  border-radius: 30px;
   border-color: white;
   background-color: #545454;
   color: white;
   outline: none;
 }
 
-.add-input::placeholder {
+.edit-input::placeholder {
   color: white;
 }
 

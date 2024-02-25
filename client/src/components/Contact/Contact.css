@@ -4,9 +4,13 @@
 }
 
 .contact-card{
-  padding: 15px;
+  padding: 18px;
   display: flex;
   gap: 20px;
   align-items: center;
+
+  span{
+    font-size: 1.2em;
+  }
 }
 

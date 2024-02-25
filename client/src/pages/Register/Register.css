@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 90px;
+  margin-top: 100px;
 }
 
 .register-section{
@@ -12,19 +12,19 @@
 }
 
 .register-title{
-  font-size: 1.8em;
-  width: 140px;
+  font-size: 2em;
+  width: 200px;
   text-align: center;
   line-height: 1em;
   color: #FF5757;
 }
 
 .register-form{
-  padding: 50px;
+  padding: 100px 0px;
 }
 
 .register-form label p {
-  font-size: 0.6em;
+  font-size: 1em;
   padding: 15px 0px 5px 10px;
   color: white;
 }
@@ -49,6 +49,7 @@
   color: #FF5757;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1em;
 }
 
 .register-text a:hover{
@@ -60,9 +61,9 @@
   margin: auto;
   background-color: #FF5757;
   border: 2px solid white;
-  padding: 10px 75px;
-  border-radius: 25px;
-  margin-top: 30px;
+  padding: 15px 90px;
+  border-radius: 35px;
+  margin-top: 60px;
   text-decoration: none;
 }
 
@@ -71,6 +72,7 @@
 }
 
 .register-button p{
+  font-size: 1.2em;
   color: white;
 }
 
