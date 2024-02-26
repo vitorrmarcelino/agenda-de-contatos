@@ -50,3 +50,15 @@
   text-align: center;
   margin-top: 50px;
 }
+
+.delete-contact-text{
+  padding-top: 80px;
+  color: #FF5757;
+  font-weight: 700;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.delete-contact-text:hover{
+  text-decoration: underline;
+}

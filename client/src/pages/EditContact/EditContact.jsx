@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react';
 import './EditContact.css';
 import { Check, X } from 'lucide-react';
@@ -49,6 +51,15 @@ export default function AddContact() {
     }
   };
 
+  const handleDeleteContact = async () => {
+    try {
+      await api.delete('contacts', { data: { contact_id: contactId } });
+      navigate('/');
+    } catch (err) {
+      setError(err.response.data.msg);
+    }
+  };
+
   return (
     <div className="edit-contact-container">
       <div className="form-container">
@@ -64,6 +75,7 @@ export default function AddContact() {
         </form>
       </div>
       <p className="error-text">{error}</p>
+      <p className="delete-contact-text" onClick={handleDeleteContact}>Excluir esse contato.</p>
     </div>
   );
 }
